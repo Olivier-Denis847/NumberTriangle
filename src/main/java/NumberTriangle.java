@@ -88,8 +88,12 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-        // TODO implement this method
-        return -1;
+        if (path.isEmpty())
+            return this.root;
+        String rest = path.substring(1);
+        if (path.charAt(0) == 'l')
+            return this.left.retrieve(rest);
+        return this.right.retrieve(rest);
     }
 
     /** Read in the NumberTriangle structure from a file.
